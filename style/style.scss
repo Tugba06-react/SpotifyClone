@@ -1,0 +1,389 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    background: black;
+    color: white;
+    overflow: hidden;
+    font-family: 'poppins';
+  }
+  
+  aside {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px 15px;
+  
+    nav {
+      display: flex;
+      flex-direction: column;
+  
+      a {
+        padding: 20px 10px;
+        display: flex;
+        gap: 10px;
+        border-radius: 10px;
+        white-space: nowrap;
+        transition: all 0.3s;
+  
+        &:hover {
+          background: rgb(32, 32, 32);
+        }
+  
+        @media (max-width: 870px) {
+          span {
+            display: none;
+          }
+  
+          i {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  
+    #logo {
+      width: 40px;
+      display: none;
+    }
+  
+    #text-logo {
+      width: 130px;
+    }
+  
+    @media (max-width: 870px) {
+      #logo {
+        display: block;
+      }
+  
+      #text-logo {
+        display: none;
+      }
+    }
+  }
+  
+  main {
+    width: 100%;
+  }
+  
+.light {
+  background: white !important;
+  color:black !important;
+
+  .songs{
+    background: gray !important;
+  }
+
+  form input {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.354);
+  }
+
+  .card{
+    background: white !important;
+    color: #000 !important;
+  }
+  nav a{
+    color: black !important;
+    &:hover {
+      background: gray;
+    }
+}
+}
+
+  main header {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 10px;
+    gap:40px;
+  
+    @media (max-width: 870px) {
+      justify-content: center;
+    }
+  
+    form {
+      display: flex;
+  
+      input {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+      }
+  
+      button {
+        background: #1db954;
+        height: 100%;
+        padding: 0 25px;
+        border: none;
+        color: white;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+  
+        &:hover {
+          background: #0ff15e;
+        }
+      }
+    }
+  
+    ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+  
+      @media (max-width: 870px) {
+        display: none;
+      }
+  
+      li {
+        padding: 5px 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 300ms;
+  
+        &:hover {
+          background: rgb(60, 60, 60);
+        }
+      }
+    }
+  }
+  
+  main .songs {
+    background: rgb(42, 42, 42);
+    height: 100%;
+  }
+  
+  .songs #title {
+    text-transform: capitalize;
+    padding: 20px;
+  }
+  
+  .songs #list {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    height: 80vh;
+    overflow: auto;
+
+
+    @media (max-width: 600px) {
+      justify-content: center;
+      
+    }
+   &::-webkit-scrollbar{
+    background: black;
+    opacity: 0;
+    width: 8px;
+   }
+
+   &::-webkit-scrollbar-thumb{
+    background: #0e9c3f;
+    border-radius: 4px;
+   }
+
+  
+    .card {
+      width: 200px;
+      padding: 15px;
+      background: #181818;
+      border-radius: 6px;
+      cursor: pointer;
+  
+      &:hover #play {
+        opacity: 1;
+        bottom: 20px;
+      }
+  
+      figure {
+        position: relative;
+  
+        img {
+          width: 100%;
+          border-radius: 6px;
+          margin-bottom: 10px;
+        }
+  
+        #play {
+          position: absolute;
+          right: 10px;
+          bottom: -20px;
+          background: #1db954;
+          opacity: 0;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: grid;
+          place-items: center;
+          font-size: 23px;
+          transition: all 0.3s;
+  
+          &:hover {
+            background: #0e9c3f;
+            scale: 0.9;
+          }
+        }
+      }
+  
+      h4 {
+        margin-bottom: 6px;
+      }
+    }
+  }
+
+  .loader {
+    
+    --size-loader: 50px;
+    --size-orbe: 10px;
+    width: var(--size-loader);
+    height: var(--size-loader);
+    position: relative;
+    transform: rotate(45deg);
+    margin-left: 50%;
+    margin-right: -50%;
+    margin-top: 30vh;
+    
+    
+
+  }
+  
+  .orbe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    --delay: calc(var(--index) * 0.1s);
+    animation: orbit7456 ease-in-out 1.5s var(--delay) infinite;
+    opacity: calc(1 - calc(0.2 * var(--index)));
+  }
+  
+  .orbe::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: var(--size-orbe);
+    height: var(--size-orbe);
+    background-color: #3ae374;
+    box-shadow: 0px 0px 20px 2px #3ae374;
+    border-radius: 50%;
+  }
+  
+  @keyframes orbit7456 {
+    0% {
+    }
+  
+    80% {
+      transform: rotate(360deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  // Oynatma Alanı
+.play-area {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  background: linear-gradient(240deg, #fa8bff 0%, #2bd2ff 52%, #2bff88 90%);
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  padding: 10px 40px;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.animate {
+  animation: turn 5s linear infinite;
+}
+
+// animasyon oluşturma
+@keyframes turn {
+  // animasyon başladığında sahip olcağı stiller
+  from {
+    transform: rotate(0);
+  }
+
+  // animasyon bittiğinde sahip olcağı stiller
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+//!Koyu mod
+
+.togglesw {
+  --s: 15px;
+ /* adjust this to control the size*/
+  height: calc(var(--s) + var(--s)/5);
+  width: auto;
+ /* some browsers need this */
+  aspect-ratio: 2.25;
+  border-radius: var(--s);
+  margin: calc(var(--s)/2);
+  display: grid;
+  cursor: pointer;
+  background-color: #ff7a7a;
+  box-sizing: content-box;
+  overflow: hidden;
+  transition: .3s .1s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.togglesw:before {
+  content: "";
+  padding: calc(var(--s)/10);
+  --_g: radial-gradient(circle closest-side at calc(100% - var(--s)/2) 50%,#000 96%,#0000);
+  background: var(--_g) 0 /var(--_p,var(--s)) 100% no-repeat content-box,
+    var(--_g) var(--_p,0)/var(--s)  100% no-repeat content-box,
+    #fff;
+  mix-blend-mode: darken;
+  filter: blur(calc(var(--s)/12)) contrast(11);
+  transition: .4s, background-position .4s .1s,
+    padding cubic-bezier(0,calc(var(--_i,-1)*200),1,calc(var(--_i,-1)*200)) .25s .1s;
+}
+
+.togglesw:checked {
+  background-color: #85ff7a;
+}
+
+.togglesw:checked:before {
+  padding: calc(var(--s)/10 + .05px) calc(var(--s)/10);
+  --_p: 100%;
+  --_i: 1;
+}
+
+
